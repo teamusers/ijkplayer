@@ -57,12 +57,12 @@
                             @"http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/gear2/prog_index.m3u8"]];
     [sampleList addObject:@[@"bipbop advanced 960x540 @ 910 kbps",
                             @"http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/gear3/prog_index.m3u8"]];
-    [sampleList addObject:@[@"bipbop advanced 1280x720 @ 1 Mbps",
-                            @"http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/gear4/prog_index.m3u8"]];
-    [sampleList addObject:@[@"bipbop advanced 1920x1080 @ 2 Mbps",
-                            @"http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/gear5/prog_index.m3u8"]];
-    [sampleList addObject:@[@"bipbop advanced 22.050Hz stereo @ 40 kbps",
-                            @"http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/gear0/prog_index.m3u8"]];
+    [sampleList addObject:@[@"ST Playback",
+                            @"rtsp://usp-vig-01:Hik2017@192.168.82.20:554/ncg04/rtsp://192.168.82.36:554/file/dvr://192.168.82.36:6300/HIKSDK/sessions/ff4d430513d0475c9b6851c47a42bd7d?https=1&token=ST-51741-VkdgyqB0tm6dPCc1mLwa-cas&cnid=1&streamtype=1?ncgMode=1&client=vlc&devType=10001&downZonePlatIndex=33000000002000000011&ks=1599786871&js=1599790471&isVtduVod=1&streamTypeSet=1-0"]];
+    [sampleList addObject:@[@"ST Live",
+                            @"rtsp://usp-vig-01:Hik2017@192.168.82.20:554/ncg04/rtsp://192.168.82.36:554/hikvision://192.168.82.41:8000:1:1?JmbI68ug1FwW7bt0AjytUgmOq/Senw/qycM9/sKqq2VbeR62J4QJUmryeCl9DNvjolmYDSywdtdGS7r1bYj0NNuSChGuzyvd0tANnqbQyB5DPKN1WGl8KdoX/EIBNIjP?ncgMode=0&devType=10001&downZonePlatIndex=33000000002000000011&isVtduVod=1&streamTypeSet=1-0"]];
+    [sampleList addObject:@[@"RTSP",
+                            @"rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov"]];
 
     self.sampleList = sampleList;
 }

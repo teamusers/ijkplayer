@@ -1,5 +1,17 @@
 # ijkplayer
 
+For Newbie:
+
+iOS: 
+General steps to build framework
+https://www.jianshu.com/p/65fb80dff4d6
+
+Resolve calling `applicationState` on main thread
+https://www.dazhuanlan.com/2019/10/16/5da6084dc153a/?__cf_chl_jschl_tk__=002b50f392fcbefc4024ddb625b2bb595705cf3c-1599713688-0-AXfH98JJ91WxB8J9JtS0rWilbTzAk1ird7NKXZaStfV4KGLCBv6o5TO2elKZph5Dd9VaXZNMB1MQa1bryS1CsjYTbrgYwugappr0TE4__-HxiUFpW6To9zIWntw2hHLZ9YTaWmTc30TXxsgPpN_wHELtyMFqtv7QGmz8V0ITyJbNEmd-1LWxxNwmWYM7z_29uzz_3fmyrpJGvWiR5j7YjE1n4zMwnPd7CuY78-Afo_rJ_tNuSK_t7IvGsRR1xMlFj6rNNmO9YKQa1x99LsuYnsCmlAJT8hdmTwDYIP-x-o_1Bf_7NPb-UJ0ET19og3vqfg
+
+Enable RTSP(disable by default)
+https://blog.csdn.net/qq372848728/article/details/62170288?utm_medium=distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase&depth_1-utm_source=distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase
+
  Platform | Build Status
  -------- | ------------
  Android | [![Build Status](https://travis-ci.org/Bilibili/ci-ijk-ffmpeg-android.svg?branch=master)](https://travis-ci.org/Bilibili/ci-ijk-ffmpeg-android)

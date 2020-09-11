@@ -195,6 +195,16 @@ typedef NS_ENUM(NSInteger, IJKSDLGLViewApplicationState) {
     return didSetupGL;
 }
 
+static void IJKHanleInMainThread(dispatch_block_t mainThreadblock) {
+    if ([NSThread currentThread] == [NSThread mainThread]){
+        mainThreadblock();
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            mainThreadblock();
+        });
+    }
+}
+
 - (BOOL)isApplicationActive
 {
     switch (_applicationState) {
@@ -203,7 +213,10 @@ typedef NS_ENUM(NSInteger, IJKSDLGLViewApplicationState) {
         case IJKSDLGLViewApplicationBackgroundState:
             return NO;
         default: {
-            UIApplicationState appState = [UIApplication sharedApplication].applicationState;
+            __block UIApplicationState appState = 0;
+            IJKHanleInMainThread(^{
+                appState = [UIApplication sharedApplication].applicationState;
+            });
             switch (appState) {
                 case UIApplicationStateActive:
                     return YES;
@@ -371,14 +384,19 @@ typedef NS_ENUM(NSInteger, IJKSDLGLViewApplicationState) {
         return;
     }
 
-    [[self eaglLayer] setContentsScale:_scaleFactor];
-
+    IJKHanleInMainThread(^{
+        [[self eaglLayer] setContentsScale:_scaleFactor];
+    });
+    
     if (_isRenderBufferInvalidated) {
         NSLog(@"IJKSDLGLView: renderbufferStorage fromDrawable\n");
         _isRenderBufferInvalidated = NO;
 
         glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
-        [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self.layer];
+        IJKHanleInMainThread(^{
+            [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self.layer];
+        });
+        
         glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &_backingWidth);
         glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &_backingHeight);
         IJK_GLES2_Renderer_setGravity(_renderer, _rendererGravity, _backingWidth, _backingHeight);
